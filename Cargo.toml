@@ -1,0 +1,31 @@
+[package]
+edition = "2021"
+name = "embassy-stm32f4-examples"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+embassy-sync = { git = "https://github.com/embassy-rs/embassy", features = ["defmt"] }
+embassy-executor = { git = "https://github.com/embassy-rs/embassy", features = ["defmt", "integrated-timers"] }
+embassy-time = { git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime", "unstable-traits", "tick-hz-32_768"] }
+embassy-stm32 = { git = "https://github.com/embassy-rs/embassy", features = ["nightly", "unstable-traits", "defmt", "stm32f429zi", "unstable-pac", "memory-x", "time-driver-any", "exti"]  }
+embassy-usb = { git = "https://github.com/embassy-rs/embassy", features = ["defmt"] }
+embassy-net = { git = "https://github.com/embassy-rs/embassy", features = ["defmt", "tcp", "dhcpv4", "medium-ethernet", "nightly"] }
+
+defmt = "0.3"
+defmt-rtt = "0.4"
+
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7.0"
+embedded-hal = "0.2.6"
+embedded-io = "0.4.0"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+futures = { version = "0.3.17", default-features = false, features = ["async-await"] }
+heapless = { version = "0.7.5", default-features = false }
+nb = "1.0.0"
+embedded-storage = "0.3.0"
+micromath = "2.0.0"
+static_cell = "1.0"
+
+[profile.release]
+debug = 2
